@@ -1,0 +1,491 @@
+/* ==========================================================================
+   1. 초기화 및 기본 스타일 (Reset & Base)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    color: #333333;
+    line-height: 1.6;
+    background-color: #ffffff;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 유틸리티 클래스 */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.bg-light { background-color: #f8fafc; }
+.text-center { text-align: center; }
+.block { display: block; }
+.highlight { color: #f97316; font-weight: bold; }
+.text-muted { color: #94a3b8; }
+.shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.font-weight-bold { font-weight: 700; }
+.m-top-15 { margin-top: 15px; }
+.m-top-30 { margin-top: 30px; }
+.m-top-50 { margin-top: 50px; }
+
+/* 공통 타이틀 스타일 */
+.sub-title {
+    font-size: 14px;
+    color: #f97316;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-size: 32px;
+    color: #1e3a8a;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* 버튼 */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #f97316;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #ea580c;
+}
+
+.btn-secondary {
+    background-color: #1e3a8a;
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #1d4ed8;
+}
+
+/* ==========================================================================
+   2. 상단 헤더 영역 (Header & Navigation)
+   ========================================================================== */
+.header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #e2e8f0;
+    backdrop-filter: blur(5px);
+}
+
+.header-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1e3a8a;
+}
+
+.logo span {
+    color: #f97316;
+    font-weight: 400;
+}
+
+.nav a {
+    margin-left: 30px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.nav a:hover {
+    color: #1e3a8a;
+}
+
+/* ==========================================================================
+   3. 메인 대문 영역 (Hero Section)
+   ========================================================================== */
+.hero {
+    position: relative;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    background-color: #1e3a8a; /* 이미지 로드 전 대체 칼라 */
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.5)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h2 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 22px;
+    margin-bottom: 30px;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+}
+
+/* ==========================================================================
+   4. 본문 세부 섹션 스타일 (Sections)
+   ========================================================================== */
+
+/* 진료 철학 */
+.philosophy-text {
+    font-size: 18px;
+    color: #475569;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 2;
+}
+
+/* 의료진 소개 */
+.doctor-wrap {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.doctor-img {
+    flex: 1;
+    min-height: 400px;
+}
+
+.img-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    background-color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    border-radius: 12px;
+    border: 1px dashed #cbd5e1;
+}
+
+.doctor-info {
+    flex: 1.2;
+}
+
+.doctor-intro {
+    font-size: 20px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 20px;
+}
+
+.doctor-history {
+    list-style: none;
+}
+
+.doctor-history li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #475569;
+}
+
+.doctor-history li::before {
+    content: "•";
+    color: #f97316;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+/* 진료 과목 그리드 */
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 35px 25px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: #1e3a8a;
+}
+
+.card-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.card h4 {
+    font-size: 18px;
+    color: #1e3a8a;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* 진료 시간표 & 오시는 길 통합 테이블 */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.time-table, .benefit-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.time-table th, .benefit-table th {
+    background-color: #1e3a8a;
+    color: #ffffff;
+    padding: 16px;
+    font-weight: 600;
+}
+
+.time-table td, .benefit-table td {
+    padding: 18px 15px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 16px;
+}
+
+.table-notice {
+    font-size: 14px;
+    color: #64748b;
+    margin-top: 15px;
+}
+
+/* 오시는 길 레이아웃 */
+.location-wrap {
+    display: flex;
+    gap: 40px;
+}
+
+.map-area {
+    flex: 1.5;
+    height: 400px;
+}
+
+.location-info {
+    flex: 1;
+    background: #f8fafc;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.location-info h4 {
+    font-size: 22px;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+}
+
+.location-info hr {
+    border: 0;
+    height: 1px;
+    background: #cbd5e1;
+    margin: 20px 0;
+}
+
+.transport h5 {
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: #334155;
+}
+
+.transport p {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   5. 하단 영역 및 추가 기능 (Footer & Floating Buttons)
+   ========================================================================== */
+.footer {
+    background-color: #1e293b;
+    color: #94a3b8;
+    padding: 40px 0;
+    font-size: 14px;
+}
+
+.footer-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.footer-info p {
+    margin-bottom: 6px;
+}
+
+.footer-info a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.copyright {
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+.btn-link {
+    display: inline-block;
+    color: #ffffff;
+    background: #334155;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.btn-link:hover {
+    background: #f97316;
+}
+
+/* 비급여 전용 테이블 추가 스타일 */
+.benefit-table th { background-color: #334155; }
+.bg-light-gray { background-color: #f1f5f9; }
+
+/* 플로팅 버튼 */
+.floating-buttons {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 9999;
+}
+
+.float-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    border-radius: 50px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease;
+}
+
+.float-btn:hover {
+    transform: scale(1.05);
+}
+
+.float-naver { background-color: #03c75a; }
+.float-phone { background-color: #f97316; }
+
+
+/* ==========================================================================
+   6. 모바일 해상도 대응 반응형 미디어 쿼리 (Responsive Grid)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .doctor-wrap, .location-wrap {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .doctor-img, .map-area {
+        width: 100%;
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section { padding: 50px 0; }
+    .section-title { font-size: 26px; margin-bottom: 25px; }
+    
+    /* 헤더 축소 및 유연화 */
+    .header-wrap { height: 70px; flex-direction: column; justify-content: center; gap: 8px; }
+    .logo { font-size: 20px; }
+    .nav a { margin: 0 10px; font-size: 14px; }
+    
+    /* 대문 크기 조정 */
+    .hero { height: 400px; text-align: center; }
+    .hero h2 { font-size: 32px; }
+    .hero p { font-size: 16px; }
+    
+    /* 1열 배치 강제화 */
+    .grid-4 { grid-template-columns: 1fr; gap: 15px; }
+    
+    /* 푸터 수직 정렬 */
+    .footer-wrap { flex-direction: column; text-align: center; gap: 20px; }
+    
+    /* 플로팅 버튼 레이아웃 축소 모바일 최적화 */
+    .floating-buttons {
+        bottom: 15px; right: 15px; left: 15px;
+        flex-direction: row;
+    }
+    .float-btn {
+        flex: 1;
+        padding: 12px 10px;
+        font-size: 13px;
+        border-radius: 8px;
+    }
+}
