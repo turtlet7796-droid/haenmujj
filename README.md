@@ -52,7 +52,9 @@
         <div class="container">
             <div class="doctor-wrap">
                 <div class="doctor-img">
-                    <!-- 원장님 사진 자리 -->
+                   <div>
+    <img src="C:\Users\LG\Desktop\해나무홈피" alt="해나무한의원 한상희 원장 프로필 사진">
+</div>
                     <div class="img-placeholder">원장님 사진 공간</div>
                 </div>
                 <src="images/doctor.jpg">
