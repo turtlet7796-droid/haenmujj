@@ -61,12 +61,11 @@
                     <h3 class="section-title">원장 한상희</h3>
                     <p class="doctor-intro">"정확한 진단과 올바른 치료로 척추·관절 건강을 지키겠습니다."</p>
                     <ul class="doctor-history">
-                        <li>한의학 전문의 (또는 한의학 박사)</li>
-                        <li>대한척추신경추나의학회 정회원</li>
-                        <li>전) OO한방병원 진료원장</li>
-                        <li>대한한방부인과학회 회원</li>
-                        <li>한방 척추 관절 전문 과정 수료</li>
-                    </ul>
+                        <li>대한한의학회 정회원</li>
+                        <li>한방재활관절학회 정회원</li>
+                        <li>전) 지리한한방병원 진료원장</li>
+                       
+                     </ul>
                 </div>
             </div>
         </div>
