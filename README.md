@@ -55,6 +55,7 @@
                     <!-- 원장님 사진 자리 -->
                     <div class="img-placeholder">원장님 사진 공간</div>
                 </div>
+                <src="images/doctor.jpg">
                 <div class="doctor-info">
                     <span class="sub-title">Medical Staff</span>
                     <h3 class="section-title">원장 한상희</h3>
