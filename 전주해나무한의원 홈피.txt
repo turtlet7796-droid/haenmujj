@@ -1,491 +1,173 @@
-/* ==========================================================================
-   1. 초기화 및 기본 스타일 (Reset & Base)
-   ========================================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-    color: #333333;
-    line-height: 1.6;
-    background-color: #ffffff;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* 유틸리티 클래스 */
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.section {
-    padding: 80px 0;
-}
-
-.bg-light { background-color: #f8fafc; }
-.text-center { text-align: center; }
-.block { display: block; }
-.highlight { color: #f97316; font-weight: bold; }
-.text-muted { color: #94a3b8; }
-.shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-.font-weight-bold { font-weight: 700; }
-.m-top-15 { margin-top: 15px; }
-.m-top-30 { margin-top: 30px; }
-.m-top-50 { margin-top: 50px; }
-
-/* 공통 타이틀 스타일 */
-.sub-title {
-    font-size: 14px;
-    color: #f97316;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
-.section-title {
-    font-size: 32px;
-    color: #1e3a8a;
-    font-weight: 700;
-    margin-bottom: 40px;
-}
-
-/* 버튼 */
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background-color: #f97316;
-    color: #ffffff;
-}
-
-.btn-primary:hover {
-    background-color: #ea580c;
-}
-
-.btn-secondary {
-    background-color: #1e3a8a;
-    color: #ffffff;
-}
-
-.btn-secondary:hover {
-    background-color: #1d4ed8;
-}
-
-/* ==========================================================================
-   2. 상단 헤더 영역 (Header & Navigation)
-   ========================================================================== */
-.header {
-    background-color: rgba(255, 255, 255, 0.95);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid #e2e8f0;
-    backdrop-filter: blur(5px);
-}
-
-.header-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: 800;
-    color: #1e3a8a;
-}
-
-.logo span {
-    color: #f97316;
-    font-weight: 400;
-}
-
-.nav a {
-    margin-left: 30px;
-    font-weight: 600;
-    color: #475569;
-}
-
-.nav a:hover {
-    color: #1e3a8a;
-}
-
-/* ==========================================================================
-   3. 메인 대문 영역 (Hero Section)
-   ========================================================================== */
-.hero {
-    position: relative;
-    height: 550px;
-    display: flex;
-    align-items: center;
-    color: #ffffff;
-    background-color: #1e3a8a; /* 이미지 로드 전 대체 칼라 */
-    overflow: hidden;
-}
-
-.hero-bg {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.5)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero h2 {
-    font-size: 48px;
-    font-weight: 800;
-    margin-bottom: 15px;
-}
-
-.hero p {
-    font-size: 22px;
-    margin-bottom: 30px;
-    font-weight: 300;
-    letter-spacing: -0.5px;
-}
-
-/* ==========================================================================
-   4. 본문 세부 섹션 스타일 (Sections)
-   ========================================================================== */
-
-/* 진료 철학 */
-.philosophy-text {
-    font-size: 18px;
-    color: #475569;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 2;
-}
-
-/* 의료진 소개 */
-.doctor-wrap {
-    display: flex;
-    gap: 50px;
-    align-items: center;
-}
-
-.doctor-img {
-    flex: 1;
-    min-height: 400px;
-}
-
-.img-placeholder {
-    width: 100%;
-    height: 100%;
-    min-height: 350px;
-    background-color: #e2e8f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #64748b;
-    border-radius: 12px;
-    border: 1px dashed #cbd5e1;
-}
-
-.doctor-info {
-    flex: 1.2;
-}
-
-.doctor-intro {
-    font-size: 20px;
-    font-weight: 600;
-    color: #334155;
-    margin-bottom: 20px;
-}
-
-.doctor-history {
-    list-style: none;
-}
-
-.doctor-history li {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 12px;
-    font-size: 16px;
-    color: #475569;
-}
-
-.doctor-history li::before {
-    content: "•";
-    color: #f97316;
-    font-weight: bold;
-    font-size: 20px;
-    position: absolute;
-    left: 0;
-    top: -2px;
-}
-
-/* 진료 과목 그리드 */
-.grid-4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-}
-
-.card {
-    background: #ffffff;
-    padding: 35px 25px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    border-color: #1e3a8a;
-}
-
-.card-icon {
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-
-.card h4 {
-    font-size: 18px;
-    color: #1e3a8a;
-    margin-bottom: 12px;
-}
-
-.card p {
-    font-size: 14px;
-    color: #64748b;
-}
-
-/* 진료 시간표 & 오시는 길 통합 테이블 */
-.table-responsive {
-    width: 100%;
-    overflow-x: auto;
-}
-
-.time-table, .benefit-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #ffffff;
-    text-align: center;
-}
-
-.time-table th, .benefit-table th {
-    background-color: #1e3a8a;
-    color: #ffffff;
-    padding: 16px;
-    font-weight: 600;
-}
-
-.time-table td, .benefit-table td {
-    padding: 18px 15px;
-    border-bottom: 1px solid #e2e8f0;
-    font-size: 16px;
-}
-
-.table-notice {
-    font-size: 14px;
-    color: #64748b;
-    margin-top: 15px;
-}
-
-/* 오시는 길 레이아웃 */
-.location-wrap {
-    display: flex;
-    gap: 40px;
-}
-
-.map-area {
-    flex: 1.5;
-    height: 400px;
-}
-
-.location-info {
-    flex: 1;
-    background: #f8fafc;
-    padding: 30px;
-    border-radius: 12px;
-}
-
-.location-info h4 {
-    font-size: 22px;
-    color: #1e3a8a;
-    margin-bottom: 15px;
-}
-
-.location-info hr {
-    border: 0;
-    height: 1px;
-    background: #cbd5e1;
-    margin: 20px 0;
-}
-
-.transport h5 {
-    font-size: 15px;
-    margin-bottom: 5px;
-    color: #334155;
-}
-
-.transport p {
-    font-size: 14px;
-    color: #64748b;
-    margin-bottom: 15px;
-}
-
-/* ==========================================================================
-   5. 하단 영역 및 추가 기능 (Footer & Floating Buttons)
-   ========================================================================== */
-.footer {
-    background-color: #1e293b;
-    color: #94a3b8;
-    padding: 40px 0;
-    font-size: 14px;
-}
-
-.footer-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-logo {
-    font-size: 18px;
-    font-weight: bold;
-    color: #ffffff;
-    margin-bottom: 10px;
-}
-
-.footer-info p {
-    margin-bottom: 6px;
-}
-
-.footer-info a:hover {
-    color: #ffffff;
-    text-decoration: underline;
-}
-
-.copyright {
-    margin-top: 15px;
-    font-size: 12px;
-}
-
-.btn-link {
-    display: inline-block;
-    color: #ffffff;
-    background: #334155;
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-weight: 600;
-}
-
-.btn-link:hover {
-    background: #f97316;
-}
-
-/* 비급여 전용 테이블 추가 스타일 */
-.benefit-table th { background-color: #334155; }
-.bg-light-gray { background-color: #f1f5f9; }
-
-/* 플로팅 버튼 */
-.floating-buttons {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    z-index: 9999;
-}
-
-.float-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 24px;
-    border-radius: 50px;
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: transform 0.2s ease;
-}
-
-.float-btn:hover {
-    transform: scale(1.05);
-}
-
-.float-naver { background-color: #03c75a; }
-.float-phone { background-color: #f97316; }
-
-
-/* ==========================================================================
-   6. 모바일 해상도 대응 반응형 미디어 쿼리 (Responsive Grid)
-   ========================================================================== */
-@media (max-width: 992px) {
-    .grid-4 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .doctor-wrap, .location-wrap {
-        flex-direction: column;
-        gap: 30px;
-    }
-    .doctor-img, .map-area {
-        width: 100%;
-        min-height: 300px;
-    }
-}
-
-@media (max-width: 768px) {
-    .section { padding: 50px 0; }
-    .section-title { font-size: 26px; margin-bottom: 25px; }
-    
-    /* 헤더 축소 및 유연화 */
-    .header-wrap { height: 70px; flex-direction: column; justify-content: center; gap: 8px; }
-    .logo { font-size: 20px; }
-    .nav a { margin: 0 10px; font-size: 14px; }
-    
-    /* 대문 크기 조정 */
-    .hero { height: 400px; text-align: center; }
-    .hero h2 { font-size: 32px; }
-    .hero p { font-size: 16px; }
-    
-    /* 1열 배치 강제화 */
-    .grid-4 { grid-template-columns: 1fr; gap: 15px; }
-    
-    /* 푸터 수직 정렬 */
-    .footer-wrap { flex-direction: column; text-align: center; gap: 20px; }
-    
-    /* 플로팅 버튼 레이아웃 축소 모바일 최적화 */
-    .floating-buttons {
-        bottom: 15px; right: 15px; left: 15px;
-        flex-direction: row;
-    }
-    .float-btn {
-        flex: 1;
-        padding: 12px 10px;
-        font-size: 13px;
-        border-radius: 8px;
-    }
-}
+<!-- 헤더 / 내비게이션 -->
+<header class="header">
+    <div class="container header-wrap">
+        <h1 class="logo"><a href="#">해나무<span>한의원</span></a></h1>
+        <nav class="nav">
+            <a href="#philosophy">진료철학</a>
+            <a href="#doctor">의료진소개</a>
+            <a href="#subjects">진료과목</a>
+            <a href="#hours">진료시간</a>
+            <a href="#location">오시는길</a>
+        </nav>
+    </div>
+</header>
+
+<!-- 1. 메인 대문 (Hero 섹션) -->
+<section class="hero">
+    <div class="hero-bg"></div> <!-- 실제 운영 시 배경 이미지 지정 가능 -->
+    <div class="container hero-content">
+        <h2>해나무한의원</h2>
+        <p>척추 관절, 수술 없이 바르게 치료합니다</p>
+        <a href="tel:063-277-6688" class="btn btn-primary">전화 상담하기</a>
+    </div>
+</section>
+
+<!-- 2. 진료 철학 섹션 -->
+<section id="philosophy" class="philosophy section">
+    <div class="container text-center">
+        <span class="sub-title">Philosophy</span>
+        <h3 class="section-title">환자를 대하는 우리의 마음</h3>
+        <p class="philosophy-text">
+            해나무한의원은 일시적인 통증 완화에 그치지 않고, 몸의 자생력을 높여 근본적인 원인을 치료합니다.<br>
+            내 가족을 치료하는 마음으로, 언제나 환자분들의 목소리에 귀 기울이며 진심을 다해 소통하겠습니다.<br>
+            통증 없는 편안한 일상으로 돌아가실 수 있도록 든든한 건강 동반자가 되겠습니다.
+        </p>
+    </div>
+</section>
+
+<!-- 3. 의료진 소개 섹션 -->
+<section id="doctor" class="doctor section bg-light">
+    <div class="container">
+        <div class="doctor-wrap">
+            <div class="doctor-img">
+                <!-- 원장님 사진 자리 -->
+                <div class="img-placeholder">원장님 사진 공간</div>
+<img src="images/doctor.jpg" alt="한상희 원장님 사진">
+            </div>
+            <div class="doctor-info">
+                <span class="sub-title">Medical Staff</span>
+                <h3 class="section-title">원장 한상희</h3>
+                <p class="doctor-intro">"정확한 진단과 올바른 치료로 척추·관절 건강을 지키겠습니다."</p>
+                <ul class="doctor-history">
+                    <li>대한한의사협회 정회원 </li>
+                    <li>전) 지리산한방병원 진료원장</li>
+                    <li>전) 군산노블한방병원 진료원장</li>
+                    <li>한방 관절 재활 학회 과정 수료</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. 진료 과목 안내 섹션 (그리드 형태) -->
+<section id="subjects" class="subjects section">
+    <div class="container">
+        <span class="sub-title text-center block">Medical Subjects</span>
+        <h3 class="section-title text-center">주요 진료 과목</h3>
+        <div class="grid-4">
+            <div class="card">
+                <div class="card-icon">🚗</div>
+                <h4>교통사고 후유증</h4>
+                <p>어혈을 제거하고 긴장된 근육을 풀어주어 후유증을 최소화합니다.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">👐</div>
+                <h4>추나요법</h4>
+                <p>틀어진 척추와 골반을 바로잡아 통증의 원인을 근본적으로 치료합니다.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌿</div>
+                <h4>첩약한약</h4>
+                <p>엄선된 청정 약재만을 사용하여 기력을 회복하고 면역력을 강화합니다.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏥</div>
+                <h4>산재치료</h4>
+                <p>근로 중 발생한 부상을 부담 없이, 체계적인 한방 치료로 회복합니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. 진료 시간표 섹션 -->
+<section id="hours" class="hours section bg-light">
+    <div class="container">
+        <span class="sub-title text-center block">Time & Notice</span>
+        <h3 class="section-title text-center">진료 시간 안내</h3>
+        
+        <div class="table-responsive">
+            <table class="time-table">
+                <thead>
+                    <tr>
+                        <th>월·수·금 (야간)</th>
+                        <th>화·목</th>
+                        <th>일요일 (주말진료)</th>
+                        <th>점심시간</th>
+                        <th>토요일·공휴일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>09:30 ~ <span class="highlight">20:30</span></td>
+                        <td>09:30 ~ 19:00</td>
+                        <td><span class="highlight">13:00 ~ 17:00</span></td>
+                        <td>13:00 ~ 14:00</td>
+                        <td><span class="text-muted">휴진</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="table-notice">* 일요일은 점심시간 없이 진료합니다. 평일 야간진료로 퇴근 후에도 편하게 내원하세요.</p>
+    </div>
+</section>
+
+<!-- 6. 오시는 길 섹션 -->
+<section id="location" class="location section">
+    <div class="container">
+        <span class="sub-title text-center block">Directions</span>
+        <h3 class="section-title text-center">오시는 길</h3>
+        
+        <div class="location-wrap">
+            <!-- 네이버 지도 API 혹은 iframe 들어갈 자리 -->
+            <div class="map-area">
+                <div class="img-placeholder">네이버 지도 연동 영역 (iframe 등 삽입)</div>
+            </div>
+            <div class="location-info">
+                <h4>해나무한의원</h4>
+                <p class="address"><strong>주소:</strong> 전주시 덕진구 솔내로 152, 푸른시티 2층</p>
+                <hr>
+                <div class="transport">
+                    <h5>🚍 대중교통 이용 시</h5>
+                    <p>일반버스 100번, 200번 승차 후 '푸른시티 앞' 정류장 하차 (도보 1분)</p>
+                    <h5>🚗 주차 안내</h5>
+                    <p>건물 지하 주차장 및 후면 전용 주차장 무료 이용 가능 (최대 2시간 지원)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 푸터 (하단 정보란) -->
+<footer class="footer">
+    <div class="container footer-wrap">
+        <div class="footer-info">
+            <p class="footer-logo">해나무한의원</p>
+            <p>대표자: 한상희 | 사업자등록번호: 232-92-00335 | 대표전화: <a href="tel:063-277-6688">063-277-6688</a></p>
+            <p>주소: 전주시 덕진구 솔내로 152, 푸른시티 2층 | 이메일: contact@henamu.com</p>
+            <p class="copyright">&copy; 2026 해나무한의원. All Rights Reserved.</p>
+        </div>
+        <div class="footer-links">
+            <a href="non-benefit.html" class="btn-link">비급여 목록표 보기 &rarr;</a>
+        </div>
+    </div>
+</footer>
+
+<!-- 플로팅 버튼 -->
+<div class="floating-buttons">
+    <a href="https://booking.naver.com" target="_blank" class="float-btn float-naver">
+        <span>💚 네이버 예약</span>
+    </a>
+    <a href="tel:063-277-6688" class="float-btn float-phone">
+        <span>📞 전화 문의</span>
+    </a>
+</div>
