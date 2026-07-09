@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>해나무한의원</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <style>
+        :root {
+            --primary: #1A365D; /* Navy Blue */
+            --accent: #2783DE;
+            --text-main: #2C2C2B;
+            --text-sec: #7D7A75;
+            --bg-canvas: #FFFFFF;
+            --bg-surface: #F9F8F7;
+            --border: #E6E5E3;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Pretendard', sans-serif;
+            color: var(--text-main);
+            background: var(--bg-canvas);
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4 { color: var(--primary); line-height: 1.3; }
+        a { text-decoration: none; color: inherit; }
+        
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+        .section { padding: 64px 0; }
+        .bg-light { background: var(--bg-surface); }
+        .section-title { font-size: 32px; text-align: center; margin-bottom: 48px; }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80') center/cover;
+            color: white;
+            text-align: center;
+            padding: 120px 24px;
+        }
+        .hero h1 { color: white; font-size: 48px; margin-bottom: 16px; }
+        .hero p { font-size: 20px; font-weight: 300; }
+        
+        /* Philosophy */
+        .philosophy { text-align: center; max-width: 760px; margin: 0 auto; }
+        .philosophy p { font-size: 18px; color: var(--text-sec); }
+        
+        /* Doctor */
+        .doctor { display: flex; gap: 48px; align-items: center; }
+        .doctor-img { flex: 1; background: #E6E5E3; aspect-ratio: 3/4; border-radius: 12px; }
+        .doctor-info { flex: 1; }
+        .doctor-info h3 { font-size: 28px; margin-bottom: 16px; }
+        .doctor-info ul { margin-top: 24px; padding-left: 20px; color: var(--text-sec); }
+        .doctor-info li { margin-bottom: 8px; }
+        
+        /* Subjects */
+        .subjects-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;
+        }
+        .subject-card {
+            background: white; border: 1px solid var(--border); border-radius: 12px; padding: 32px; text-align: center;
+            transition: transform 0.2s;
+        }
+        .subject-card:hover { transform: translateY(-4px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .subject-card h4 { font-size: 20px; margin-bottom: 12px; }
+        .subject-card p { color: var(--text-sec); font-size: 15px; }
+        
+        /* Timetable */
+        .timetable table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        .timetable th, .timetable td { padding: 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        .timetable th { background: var(--primary); color: white; }
+        
+        /* Map */
+        .map-box { height: 400px; background: #E6E5E3; border-radius: 12px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center; color: var(--text-sec); }
+        
+        /* Footer */
+        .footer { background: var(--primary); color: rgba(255,255,255,0.8); padding: 48px 0; font-size: 14px; }
+        .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+        .footer a { color: white; text-decoration: underline; }
+        
+        /* Floating */
+        .floating { position: fixed; bottom: 24px; right: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 100; }
+        .btn-float { padding: 16px 24px; border-radius: 30px; font-weight: 600; font-size: 15px; color: white; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: opacity 0.2s; }
+        .btn-float:hover { opacity: 0.9; }
+        .btn-naver { background: #03C75A; }
+        .btn-call { background: var(--accent); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .doctor { flex-direction: column; }
+            .section { padding: 48px 0; }
+            .footer-inner { flex-direction: column; }
+            .btn-float { padding: 12px 20px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <h1>해나무한의원</h1>
+            <p>미남한의사원장님의 명품진료</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container philosophy">
+            <h2 class="section-title">진료 철학</h2>
+            <p>환자 한 분 한 분의 소리에 귀 기울이며, 근본적인 원인을 찾아 치료합니다.<br>정성을 다하는 진료로 지역 사회의 건강한 일상을 지키겠습니다.</p>
+        </div>
+    </section>
+
+    <section class="section bg-light">
+        <div class="container doctor">
+            <div class="doctor-img">
+                <!-- 원장님 사진 공간 -->
+                <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; color: #7D7A75;">[원장님 사진]</div>
+            </div>
+            <div class="doctor-info">
+                <h3>대표원장 한상희</h3>
+                <p>다년간의 임상 경험을 바탕으로 세심하고 정확한 진료를 제공합니다.</p>
+                <ul>
+                    <li>한방재활의학과 전문의</li>
+                    <li>대한한의학회 정회원</li>
+                    <li>전) OO한방병원 진료원장</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">진료 과목</h2>
+            <div class="subjects-grid">
+                <div class="subject-card">
+                    <h4>한약</h4>
+                    <p>체질과 증상에 맞춘 1:1 맞춤 처방</p>
+                </div>
+                <div class="subject-card">
+                    <h4>교통사고 후유증</h4>
+                    <p>어혈 제거와 통증 완화 집중 치료</p>
+                </div>
+                <div class="subject-card">
+                    <h4>도침·약침·추나요법</h4>
+                    <p>척추 관절 교정 및 통증 집중 치료</p>
+                </div>
+                <div class="subject-card">
+                    <h4>체질 다이어트</h4>
+                    <p>건강한 체중 감량을 위한 프로그램</p>
+                </div>
+                <div class="subject-card">
+                    <h4>성인·소아 보약</h4>
+                    <p>면역력 증진 및 기력 회복</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">진료 시간</h2>
+            <div class="timetable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>요일</th>
+                            <th>시간</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>평일 (월~금)</td>
+                            <td>09:00 - 19:00</td>
+                        </tr>
+                        <tr>
+                            <td>토요일</td>
+                            <td>09:00 - 14:00 (점심시간 없음)</td>
+                        </tr>
+                        <tr>
+                            <td>일요일 / 공휴일</td>
+                            <td>휴무</td>
+                        </tr>
+                        <tr>
+                            <td>점심시간</td>
+                            <td>13:00 - 14:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">오시는 길</h2>
+            <div class="map-box">
+                [네이버 지도 영역]
+            </div>
+            <p><strong>주소:</strong> 전라북도 전주시 덕진구 솔내로 152</p>
+            <p style="margin-top: 8px; color: var(--text-sec);"><strong>주차 안내:</strong> 건물 뒤편 전용 주차장을 이용해 주세요.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div>
+                <h3 style="color: white; margin-bottom: 12px; font-size: 20px;">해나무한의원</h3>
+                <p>주소: 전라북도 전주시 덕진구 솔내로 152</p>
+                <p>대표자: 한상희 | 사업자등록번호: 232-92-00335</p>
+                <p>대표전화: 063-277-6688 | 이메일: info@haenamu.com</p>
+                <p style="margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.5);">© 2026 해나무한의원. All rights reserved.</p>
+            </div>
+            <div>
+                <a href="non-covered.html">비급여목록표 보기</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating">
+        <a href="#" class="btn-float btn-naver">네이버 예약하기</a>
+        <a href="tel:063-277-6688" class="btn-float btn-call">전화 문의하기</a>
+    </div>
+
+</body>
+</html>
