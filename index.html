@@ -28,7 +28,8 @@
         .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
         .section { padding: 64px 0; }
         .bg-light { background: var(--bg-surface); }
-        .section-title { font-size: 32px; text-align: center; margin-bottom: 48px; }
+        .section-title { font-size: 32px; text-align: center; margin-bottom: 8px; }
+        .section-subtitle { text-align: center; color: var(--text-sec); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 48px; }
         
         /* Hero */
         .hero {
@@ -45,12 +46,7 @@
         .philosophy p { font-size: 18px; color: var(--text-sec); }
         
         /* Doctor */
-        .doctor { display: flex; gap: 48px; align-items: center; }
-        .doctor-img { flex: 1; background: #E6E5E3; aspect-ratio: 3/4; border-radius: 12px; }
-        .doctor-info { flex: 1; }
-        .doctor-info h3 { font-size: 28px; margin-bottom: 16px; }
-        .doctor-info ul { margin-top: 24px; padding-left: 20px; color: var(--text-sec); }
-        .doctor-info li { margin-bottom: 8px; }
+        .doctor-wrap { display: flex; gap: 48px; align-items: center; margin-top: 24px; }
         
         /* Subjects */
         .subjects-grid {
@@ -69,25 +65,41 @@
         .timetable th, .timetable td { padding: 16px; text-align: left; border-bottom: 1px solid var(--border); }
         .timetable th { background: var(--primary); color: white; }
         
-        /* Map */
-        .map-box { height: 400px; background: #E6E5E3; border-radius: 12px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center; color: var(--text-sec); }
-        
+        /* Location (Map Section) */
+        .location-wrap { display: flex; gap: 32px; align-items: stretch; margin-top: 24px; }
+        .map-area { flex: 1; min-height: 380px; border-radius: 12px; padding: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .location-info { flex: 1; display: flex; flex-direction: column; gap: 16px; justify-content: space-between; }
+        .info-box { background: white; border: 1px solid var(--border); padding: 20px; border-radius: 12px; }
+        .info-box h4 { font-size: 16px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+        .info-box p { color: var(--text-sec); font-size: 14px; }
+
         /* Footer */
         .footer { background: var(--primary); color: rgba(255,255,255,0.8); padding: 48px 0; font-size: 14px; }
         .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
         .footer a { color: white; text-decoration: underline; }
         
-        /* Floating */
+        /* Floating Buttons */
         .floating { position: fixed; bottom: 24px; right: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 100; }
         .btn-float { padding: 16px 24px; border-radius: 30px; font-weight: 600; font-size: 15px; color: white; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: opacity 0.2s; }
         .btn-float:hover { opacity: 0.9; }
         .btn-naver { background: #03C75A; }
         .btn-call { background: var(--accent); }
 
+        /* Animation */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Responsive Layout */
         @media (max-width: 768px) {
             .hero h1 { font-size: 32px; }
             .hero p { font-size: 16px; }
-            .doctor { flex-direction: column; }
+            .doctor-wrap { flex-direction: column; text-align: center; gap: 32px; }
+            .doctor-img { max-width: 100% !important; height: 400px !important; }
+            .doctor-info p.quote { border-left: none !important; padding-left: 0 !important; }
+            .location-wrap { flex-direction: column; }
+            .map-area { min-height: 280px; }
             .section { padding: 48px 0; }
             .footer-inner { flex-direction: column; }
             .btn-float { padding: 12px 20px; font-size: 14px; }
@@ -103,42 +115,49 @@
         </div>
     </header>
 
+    <!-- 진료 철학 -->
     <section class="section">
         <div class="container philosophy">
             <h2 class="section-title">진료 철학</h2>
+            <div style="height: 20px;"></div>
             <p>환자 한 분 한 분의 소리에 귀 기울이며, 근본적인 원인을 찾아 치료합니다.<br>정성을 다하는 진료로 지역 사회의 건강한 일상을 지키겠습니다.</p>
         </div>
     </section>
 
-   <!-- 의료진 소개 -->
-    <section id="doctor" class="doctor">
+    <!-- 의료진 소개 (수정 및 오류 해결 완료) -->
+    <section id="doctor" class="section bg-light">
         <div class="container">
-            <div class="section-title">의료진 소개</div>
+            <h2 class="section-title">의료진 소개</h2>
             <div class="section-subtitle">Medical Staff</div>
             <div class="doctor-wrap">
                 
                 <!-- 왼쪽: 원장님 프로필 사진 영역 -->
-                <div class="doctor-img" style="flex: 1; max-width: 400px; height: 500px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background-color: #f8f9f8;">
-                    <!-- 깃허브 최상단(폴더 밖)에 올리셨다면 src="doctor.jpg" -->
-                    <!-- 만약 image 폴더 안에 넣으셨다면 src="image/doctor.jpg"로 적어주세요 -->
+                <div class="doctor-img" style="flex: 1; width: 100%; max-width: 380px; height: 480px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.06); background-color: #f8f9f8;">
                     <img src="doctor.jpg" alt="해나무한의원 한상희 원장 프로필 사진" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
                 </div>
                 
                 <!-- 오른쪽: 원장님 소개 및 약력 -->
-                <div class="doctor-info" style="flex: 1.2;">
-                    <h3 style="font-size: 1.8rem; color: #2c5e43; margin-bottom: 15px; font-weight: 700;">원장 한상희</h3>
-                    <p class="quote" style="font-size: 1.1rem; font-weight: 600; margin-bottom: 30px; color: #333333; border-left: 4px solid #4a7c59; padding-left: 15px; line-height: 1.5;">
+                <div class="doctor-info" style="flex: 1.2; text-align: left;">
+                    <h3 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 15px; font-weight: 700;">원장 한상희</h3>
+                    <p class="quote" style="font-size: 1.1rem; font-weight: 600; margin-bottom: 30px; color: #333333; border-left: 4px solid var(--primary); padding-left: 15px; line-height: 1.5;">
                         "정확한 진단과 올바른 치료로<br>척추·관절 건강을 지키겠습니다."
                     </p>
                     <ul style="display: flex; flex-direction: column; gap: 12px; list-style: none; padding: 0;">
-                        <li style="position: relative; padding-left: 20px; font-size: 1.05rem; color: #555555;">• 대한한의학회 정회원</li>
-                        <li style="position: relative; padding-left: 20px; font-size: 1.05rem; color: #555555;">• 한방재활관절학회 정회원</li>
-                        <li style="position: relative; padding-left: 20px; font-size: 1.05rem; color: #555555;">• 전) 지리산한방병원 진료원장</li>
+                        <li style="font-size: 1.05rem; color: #555555; padding-left: 5px;">• 대한한의학회 정회원</li>
+                        <li style="font-size: 1.05rem; color: #555555; padding-left: 5px;">• 한방재활관절학회 정회원</li>
+                        <li style="font-size: 1.05rem; color: #555555; padding-left: 5px;">• 전) 지리산한방병원 진료원장</li>
                     </ul>
+                </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- 진료 과목 -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">진료 과목</h2>
+            <div style="height: 40px;"></div>
             <div class="subjects-grid">
                 <div class="subject-card">
                     <h4>한약</h4>
@@ -164,9 +183,11 @@
         </div>
     </section>
 
+    <!-- 진료 시간 -->
     <section class="section bg-light">
         <div class="container">
             <h2 class="section-title">진료 시간</h2>
+            <div style="height: 40px;"></div>
             <div class="timetable">
                 <table>
                     <thead>
@@ -202,21 +223,21 @@
         </div>
     </section>
 
-<!-- 오시는 길 -->
-    <section id="location" class="location">
+    <!-- 오시는 길 -->
+    <section id="location" class="section">
         <div class="container">
-            <div class="section-title">오시는 길</div>
+            <h2 class="section-title">오시는 길</h2>
             <div class="section-subtitle">Directions</div>
             <div class="location-wrap">
                 
-                <!-- 왼쪽: 네이버 지도 바로가기 버튼 영역 (전주 해나무한의원 링크 연동) -->
+                <!-- 왼쪽: 네이버 지도 바로가기 버튼 영역 -->
                 <a href="https://map.naver.com/p/search/%EC%A0%84%EC%A3%BC%20%ED%95%B4%EB%82%98%EB%AC%B4%20%ED%95%9C%EC%9D%98%EC%9B%90/place/815486299?placePath=%2Fhome%3FabtExp%3DNEW-PLACE-SEARCH%3A3%26bk_query%3D%EC%A0%84%EC%A3%BC%20%ED%95%B4%EB%82%98%EB%AC%B4%20%ED%95%9C%EC%9D%98%EC%9B%90%26entry%3Dpll%26from%3Dnx%26fromNxList%3Dtrue%26from%3Dmap%26fromPanelNum%3D2%26timestamp%3D202607091536%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%A0%84%EC%A3%BC%20%ED%95%B4%EB%82%98%EB%AC%B4%20%ED%95%9C%EC%9D%98%EC%9B%90&bk_query=%EC%A0%84%EC%A3%BC%20%ED%95%B4%EB%82%98%EB%AC%B4%20%ED%95%9C%EC%9D%98%EC%9B%90&entry=pll&from=nx&fromNxList=true&searchType=place" 
                    target="_blank" 
                    class="map-area" 
-                   style="display: flex; flex-direction: column; background: linear-gradient(135deg, #2c5e43, #1e422e); color: #ffffff; text-align: center; justify-content: center; align-items: center; text-decoration: none; transition: all 0.3s ease; border: none;">
+                   style="display: flex; flex-direction: column; background: linear-gradient(135deg, #1A365D, #0f233f); color: #ffffff; text-align: center; justify-content: center; align-items: center; text-decoration: none; transition: all 0.3s ease; border: none;">
                     <span style="font-size: 3.5rem; margin-bottom: 15px; animation: bounce 2s infinite;">🗺️</span>
                     <strong style="font-size: 1.3rem; margin-bottom: 8px; font-weight: 700; letter-spacing: -0.5px;">네이버 지도로 위치 보기</strong>
-                    <span style="font-size: 0.95rem; opacity: 0.85; font-weight: 400;">클릭하시면 네이버 지도 앱 또는 웹으로 이동하여<br>실시간 길찾기 및 내비게이션을 이용하실 수 있습니다.</span>
+                    <span style="font-size: 0.95rem; opacity: 0.85; font-weight: 400; padding: 0 10px;">클릭하시면 네이버 지도 앱 또는 웹으로 이동하여<br>실시간 길찾기 및 내비게이션을 이용하실 수 있습니다.</span>
                 </a>
 
                 <!-- 오른쪽: 상세 안내 정보 -->
@@ -238,6 +259,7 @@
         </div>
     </section>
 
+    <!-- 푸터 -->
     <footer class="footer">
         <div class="container footer-inner">
             <div>
@@ -253,8 +275,9 @@
         </div>
     </footer>
 
+    <!-- 플로팅 버튼 -->
     <div class="floating">
-        <a href="#" class="btn-float btn-naver">네이버 예약하기</a>
+        <a href="https://map.naver.com/p/search/%EC%A0%84%EC%A3%BC%20%ED%95%B4%EB%82%98%EB%AC%B4%20%ED%95%9C%EC%9D%98%EC%9B%90/place/815486299" target="_blank" class="btn-float btn-naver">네이버 플레이스</a>
         <a href="tel:063-277-6688" class="btn-float btn-call">전화 문의하기</a>
     </div>
 
