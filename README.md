@@ -84,10 +84,12 @@
                     <p>틀어진 척추와 골반을 바로잡아 통증의 원인을 근본적으로 치료합니다.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icon">🌿</div>
-                    <h4>첩약한약</h4>
-                    <p>엄선된 청정 약재만을 사용하여 기력을 회복하고 면역력을 강화합니다.</p>
-                </div>
+    <div class="card-icon">
+        <img src="image/살다보면_한약이.jpg" alt="한약 필요 시기 안내" style="width: 100%; border-radius: 8px;">
+    </div>
+    <h4>한약</h4>
+    <p>체질과 증상에 맞춘 1:1 맞춤 처방으로 건강을 되찾아 드립니다.</p>
+</div>
                 <div class="card">
                     <div class="card-icon">🏥</div>
                     <h4>산재치료</h4>
