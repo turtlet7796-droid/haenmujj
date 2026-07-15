@@ -12,17 +12,17 @@
 
     <!-- 헤더 / 내비게이션 -->
     <header class="header">
-        <div class="container header-wrap">
-            <h1 class="logo"><a href="#">해나무<span>한의원</span></a></h1>
-            <nav class="nav">
-                <a href="#philosophy">진료철학</a>
-                <a href="#doctor">의료진소개</a>
-                <a href="#subjects">진료과목</a>
-                <a href="#hours">진료시간</a>
-                <a href="#location">오시는길</a>
-            </nav>
-        </div>
-    </header>
+    <div class="container header-wrap">
+        <h1 class="logo"><a href="#">해나무<span>한의원</span></a></h1>
+        <nav class="nav">
+            <a href="#philosophy">진료철학</a>
+            <a href="#doctor">의료진소개</a>
+            <a href="#subjects">진료과목</a>
+            <a href="#hours">진료시간</a>
+            <a href="#location">오시는길</a>
+        </nav>
+    </div>
+</header>
 
     <!-- 1. 메인 대문 (Hero 섹션) -->
     <section class="hero">
