@@ -47,17 +47,12 @@
         </div>
     </section>
 
-    <!-- 3. 의료진 소개 섹션 -->
-    <section id="doctor" class="doctor section bg-light">
+   <section id="doctor" class="doctor section bg-light">
         <div class="container">
             <div class="doctor-wrap">
                 <div class="doctor-img">
-                   <div>
-    <img alt="해나무한의원 한상희 원장 프로필 사진" src="image/doctor.jpg">
-</div>
-                    <div class="img-placeholder">원장님 사진 공간</div>
+                    <img alt="해나무한의원 한상희 원장 프로필 사진" src="image/doctor.jpg">
                 </div>
-                <src="images/doctor.jpg">
                 <div class="doctor-info">
                     <span class="sub-title">Medical Staff</span>
                     <h3 class="section-title">원장 한상희</h3>
@@ -65,9 +60,8 @@
                     <ul class="doctor-history">
                         <li>대한한의학회 정회원</li>
                         <li>한방재활관절학회 정회원</li>
-                        <li>전) 지리한한방병원 진료원장</li>
-                       
-                     </ul>
+                        <li>전) 지리산한방병원 진료원장</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -143,11 +137,9 @@
             
             <div class="location-wrap">
                 <!-- 네이버 지도 API 혹은 iframe 들어갈 자리 -->
-                <div class="map-area">
-
-              
-               <iframe src=["https://naver.me/F0z26U2Z)/..." width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen></iframe>
-                </div>
+               <div class="map-area">
+    <iframe src="https://map.naver.com/p/search/%ED%95%B4%EB%82%98%EB%AC%B4%ED%95%9C%EC%9D%98%EC%9B%90/place/815486299?c=15.00,0,0,0,dh" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen></iframe>
+</div>
                 <div class="location-info">
                     <h4>해나무한의원</h4>
                     <p class="address"><strong>주소:</strong> 전주시 덕진구 솔내로 152, 푸른시티 2층</p>
