@@ -144,7 +144,9 @@
             <div class="location-wrap">
                 <!-- 네이버 지도 API 혹은 iframe 들어갈 자리 -->
                 <div class="map-area">
-                    <div class="img-placeholder">네이버 지도 연동 영역 (iframe 등 삽입)</div>
+
+              
+               <iframe src=["https://naver.me/F0z26U2Z)/..." width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen></iframe>
                 </div>
                 <div class="location-info">
                     <h4>해나무한의원</h4>
